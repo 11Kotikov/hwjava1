@@ -4,28 +4,27 @@ import javax.swing.SwingWorker.StateValue;
 
 public class program {
     public static void main(String[] args) {
-        // System.out.println("1. Sum of numbers");
-        // sumToMyNumber();
-        // System.out.println("2. Factorial");
-        // factorialMe();
-        // try {
-        // System.out.println("Calculating prime num to 1000 :)");
-        // TimeUnit.SECONDS.sleep(3);
-        // } catch (InterruptedException ie) {
-        // Thread.currentThread().interrupt();
-        // }
-        // System.out.println("3. Prime numbers to 1000");
-        // primeNumbers();
+        System.out.println("1. Sum of numbers");
+        sumToMyNumber();
+        System.out.println("2. Factorial");
+        factorialMe();
+        try {
+        System.out.println("Calculating prime num to 1000 :)");
+        TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException ie) {
+        Thread.currentThread().interrupt();
+        }
+        System.out.println("3. Prime numbers to 1000");
+        primeNumbers();
         simpleCalculator();
     }
 
     static void sumToMyNumber() {
         // Вычислить n-ое треугольного число(сумма чисел от 1 до n)
         short stopNum, num, sum;
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in); // Resource leak: 'input' is never closedJava(536871799) - если input.close() то он не работает в других методах, пишет ошибку((
         System.out.println("Number, please: ");
         stopNum = input.nextShort();
-        // input.close();
         sum = 0;
         for (num = 1; num <= stopNum; num++) {
             sum += num;
@@ -39,7 +38,6 @@ public class program {
         Scanner input = new Scanner(System.in);
         System.out.println("Number, please: ");
         stopNum = input.nextShort();
-        // input.close();
         fac = 1;
         for (num = 1; num <= stopNum; num++) {
             fac *= num;
@@ -75,7 +73,7 @@ public class program {
         sign = input.next().charAt(0);
         System.out.println("Input the second number: ");
         num2 = input.nextInt();
-        switch (sign) {
+        switch (sign) { //вроде как плохой тон использовать свитч-кейс, но тут вроде как раз исключение)
             case '+':
                 result = num1 + num2;
                 break;
@@ -90,9 +88,10 @@ public class program {
                 break;
             default:
                 System.out.printf("Uncorrect symbol of operation! Use only +,-,*,/");
-                return;
+                return; //Resource leak: 'input' is not closed at this locationJava(536871800) не понимаю почему!
         }
         System.out.printf("\n%d %c %d = %d", num1, sign, num2,result);
         // System.out.printf("%d %d %d = %d", num1, num2, sign, result);
+        input.close();
     }
 }
