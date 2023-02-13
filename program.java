@@ -4,18 +4,18 @@ import javax.swing.SwingWorker.StateValue;
 
 public class program {
     public static void main(String[] args) {
-        // System.out.println("1. Sum of numbers");
-        // sumToMyNumber();
-        // System.out.println("2. Factorial");
-        // factorialMe();
-        // try {
-        // System.out.println("Calculating prime num to 1000, wait 3 sec :)");
-        // TimeUnit.SECONDS.sleep(3);
-        // } catch (InterruptedException ie) {
-        // Thread.currentThread().interrupt();
-        // }
-        // System.out.println("3. Prime numbers to 1000");
-        // primeNumbers();
+        System.out.println("1. Sum of numbers");
+        sumToMyNumber();
+        System.out.println("2. Factorial");
+        factorialMe();
+        try {
+        System.out.println("Calculating prime num to 1000, wait 3 sec :)");
+        TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException ie) {
+        Thread.currentThread().interrupt();
+        }
+        System.out.println("3. Prime numbers to 1000");
+        primeNumbers();
         simpleCalculator();
     }
 
