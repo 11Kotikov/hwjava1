@@ -4,18 +4,18 @@ import javax.swing.SwingWorker.StateValue;
 
 public class program {
     public static void main(String[] args) {
-        System.out.println("1. Sum of numbers");
-        sumToMyNumber();
-        System.out.println("2. Factorial");
-        factorialMe();
-        try {
-        System.out.println("Calculating prime num to 1000 :)");
-        TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException ie) {
-        Thread.currentThread().interrupt();
-        }
-        System.out.println("3. Prime numbers to 1000");
-        primeNumbers();
+        // System.out.println("1. Sum of numbers");
+        // sumToMyNumber();
+        // System.out.println("2. Factorial");
+        // factorialMe();
+        // try {
+        // System.out.println("Calculating prime num to 1000, wait 3 sec :)");
+        // TimeUnit.SECONDS.sleep(3);
+        // } catch (InterruptedException ie) {
+        // Thread.currentThread().interrupt();
+        // }
+        // System.out.println("3. Prime numbers to 1000");
+        // primeNumbers();
         simpleCalculator();
     }
 
@@ -64,7 +64,7 @@ public class program {
     }
 
     static void simpleCalculator() {
-        int num1, num2, result;
+        double num1, num2, result;
         char sign;
         Scanner input = new Scanner(System.in);
         System.out.println("Input the first number: ");
@@ -90,7 +90,7 @@ public class program {
                 System.out.printf("Uncorrect symbol of operation! Use only +,-,*,/");
                 return; //Resource leak: 'input' is not closed at this locationJava(536871800) не понимаю почему!
         }
-        System.out.printf("\n%d %c %d = %d", num1, sign, num2,result);
+        System.out.printf("\n%s %s %s = %s", num1, sign, num2,result);
         // System.out.printf("%d %d %d = %d", num1, num2, sign, result);
         input.close();
     }
